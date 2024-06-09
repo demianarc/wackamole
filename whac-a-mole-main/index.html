@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="src/assets/favicon.png">
+    <link rel="stylesheet" href="dist/css/output.css">
+    <title>Whac-an-alien</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>Please enable javascript to continue.</strong>
+    </noscript>
+    <div id="app">
+
+      <div id="sky--background" class="sky"></div>
+      <div id="sun--background"><div class="sun"></div></div>
+
+      <header>
+        <div id="high-score">
+          <h2></h2>
+          <h3>HIGH SCORE</h3>
+        </div>
+        <div id="score">
+          <h2>0</h2>
+          <h3>POINTS</h3>
+        </div>
+        <div id="countdown">
+          <h2></h2>
+          <h3>SECONDS</h3>
+        </div>
+      </header>
+
+      <div id="splash--text">
+        <h1>WHAC-AN-ALIEN</h1>
+        <button id="start">PLAY</button>
+      </div>
+
+      <img class="comet1" src="src/assets/comet1.svg" alt="green comet" />
+      <img class="comet2" src="src/assets/comet2.svg" alt="pink comet" />
+      <img class="constellation" src="src/assets/constellation.svg" alt="constellation" />
+
+      <div id="moon--background" class="moon">
+        <div class="moon__shine"></div>
+        <button class="moon__alien" id="alien1">
+          <img class="moon__alien--crater" src="src/assets/crater1.svg" alt="crater" />
+          <img class="moon__alien--et" src="src/assets/et1.svg" alt="extra-terrestrial" />
+        </button>
+        <button class="moon__alien moon__alien--small" id="alien2">
+          <img class="moon__alien--crater" src="src/assets/crater2.svg" alt="crater" />
+          <img class="moon__alien--et" src="src/assets/et2.svg" alt="extra-terrestrial" />
+        </button>
+        <button class="moon__alien" id="alien3">
+          <img class="moon__alien--crater" src="src/assets/crater3.svg" alt="crater" />
+          <img class="moon__alien--et" src="src/assets/et3.svg" alt="extra-terrestrial" />
+        </button>
+        <button class="moon__alien" id="alien4">
+          <img class="moon__alien--crater" src="src/assets/crater4.svg" alt="crater" />
+          <img class="moon__alien--et" src="src/assets/et4.svg" alt="extra-terrestrial" />
+        </button>
+        <button class="moon__alien moon__alien--small" id="alien5">
+          <img class="moon__alien--crater" src="src/assets/crater5.svg" alt="crater" />
+          <img class="moon__alien--et" src="src/assets/et5.svg" alt="extra-terrestrial" />
+        </button>
+        <button class="moon__alien moon__alien--small" id="alien6">
+          <img class="moon__alien--crater" src="src/assets/crater6.svg" alt="crater" />
+          <img class="moon__alien--et" src="src/assets/et6.svg" alt="extra-terrestrial" />
+        </button>
+      </div>
+
+    </div>
+    <script src="src/background.js"></script>
+    <script src="src/gameplay.js"></script>
+  </body>
+</html>

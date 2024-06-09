@@ -1,0 +1,369 @@
+@keyframes animate-type {
+  0% {
+    font-variation-settings: "wght" 300;
+  }
+  100% {
+    font-variation-settings: "wght" 800;
+  }
+}
+@keyframes comet1 {
+  0% {
+    transform: translateX(60vw) translateY(30vh);
+  }
+  100% {
+    transform: translateX(-66vw) translateY(-100vh);
+  }
+}
+@keyframes comet2 {
+  0% {
+    transform: translateX(-40vw) translateY(-20vh);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(166vw) translateY(100vh);
+  }
+}
+@keyframes constellation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sunrise {
+  0% {
+    top: -8vh;
+  }
+  100% {
+    left: 50%;
+    transform: translate(-50%, 28vh);
+  }
+}
+@keyframes sunshine {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes twinkle {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+@font-face {
+  font-family: "GarconneDisplayV";
+  src: url("../fonts/GarconneDisplayVariable.ttf") format("truetype"), url("../fonts/GarconneDisplayExtraGras.otf") format("opentype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+html, body {
+  font-size: 16px;
+}
+
+button {
+  background: transparent;
+  border: none;
+}
+button:focus {
+  outline: 0;
+}
+
+html, body {
+  margin: 0;
+  background-color: #111111;
+  color: #FFFFFF;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+header {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  padding: 16px;
+}
+@media screen and (min-device-width: 769px) {
+  header {
+    padding: 24px;
+  }
+}
+@media screen and (min-device-width: 1201px) {
+  header {
+    padding: 40px;
+  }
+}
+header div {
+  opacity: 0;
+  transition: opacity 0.2s;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+header div.header__block--visible {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+header div h2 {
+  font-family: GarconneDisplayV;
+  font-size: 24px;
+}
+@media screen and (min-device-width: 769px) {
+  header div h2 {
+    font-size: 40px;
+  }
+}
+
+#splash--text {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.6s;
+  z-index: -1;
+}
+#splash--text.--game-over {
+  transition: opacity 0.8s;
+  opacity: 1;
+  z-index: 5;
+}
+#splash--text h1 {
+  font-family: GarconneDisplayV;
+  animation: animate-type 3s infinite alternate;
+  white-space: nowrap;
+  line-height: 1.8;
+}
+@media screen and (min-device-width: 769px) {
+  #splash--text h1 {
+    font-size: 64px;
+  }
+}
+#splash--text #start {
+  border-radius: 40px;
+  color: #FFFFFF;
+  background-color: #000363;
+  height: 48px;
+  width: 120px;
+  cursor: pointer;
+}
+#splash--text #start:hover {
+  opacity: 0.8;
+}
+
+.sky {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.sky__star {
+  animation: twinkle infinite;
+  background-color: #fff;
+  position: fixed;
+  transform: rotate(45deg);
+}
+
+.comet1 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  animation: comet1 6s infinite;
+}
+
+.comet2 {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  animation: comet2 15s infinite 1s;
+}
+
+.constellation {
+  position: fixed;
+  top: 14vh;
+  left: 14vw;
+  animation: constellation 30s infinite;
+  z-index: 1;
+}
+
+.star {
+  animation: twinkle infinite;
+  background-color: #fff;
+  position: fixed;
+  transform: rotate(45deg);
+}
+
+#sun--background {
+  top: -8vh;
+  right: -8vh;
+  position: fixed;
+  transition: all 1s;
+}
+#sun--background.--game-over {
+  transition: all 3s;
+  top: 14%;
+  right: calc(50% - 30vh);
+}
+#sun--background.--game-over .sun {
+  transition: all 3s;
+  width: 60vh;
+  height: 60vh;
+  animation: none;
+}
+#sun--background .sun {
+  transition: all 1s;
+  width: 20vh;
+  height: 20vh;
+  background: radial-gradient(50% 50% at 50% 50%, #f26e0e 0%, rgba(196, 196, 196, 0) 100%);
+  animation: sunshine 16s infinite;
+}
+
+.moon {
+  height: 200vh;
+  width: 200vh;
+  position: fixed;
+  top: 40vh;
+  background-color: #111111;
+  left: calc(50% - 100vh);
+  border-radius: 100%;
+  transition: transform 1.2s, left 0.8s;
+}
+.moon.--game-over {
+  left: calc(100vw - (100vh * 1.1));
+  top: 36vh;
+  transform: rotate(8deg) scale(0.9);
+  transition: transform 4s, left 2s;
+}
+.moon__shine {
+  background: radial-gradient(50% 50% at 50% 50%, #0007E4 3.55%, rgba(0, 7, 228, 0) 100%);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.moon__alien {
+  position: absolute;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+.moon__alien--active {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.moon__alien--active .moon__alien--et {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.moon__alien:hover {
+  z-index: 1;
+}
+.moon__alien--et {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.moon__alien#alien1 {
+  left: 56vh;
+  top: 20vh;
+}
+.moon__alien#alien1 .moon__alien--crater {
+  height: 8vh;
+}
+.moon__alien#alien1 .moon__alien--et {
+  right: 23%;
+  top: -67%;
+  height: 12vh;
+}
+.moon__alien#alien2 {
+  left: 90vh;
+  top: 12vh;
+}
+.moon__alien#alien2 .moon__alien--crater {
+  height: 9vh;
+}
+.moon__alien#alien2 .moon__alien--et {
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 50%;
+  height: 13vh;
+}
+.moon__alien#alien3 {
+  left: 131vh;
+  top: 23vh;
+}
+.moon__alien#alien3 .moon__alien--crater {
+  height: 15vh;
+}
+.moon__alien#alien3 .moon__alien--et {
+  top: -48%;
+  left: 23%;
+  height: 18vh;
+}
+.moon__alien#alien4 {
+  left: 47vh;
+  top: 44vh;
+}
+.moon__alien#alien4 .moon__alien--crater {
+  height: 22vh;
+}
+.moon__alien#alien4 .moon__alien--et {
+  top: -27%;
+  left: -44%;
+  height: 20vh;
+}
+.moon__alien#alien5 {
+  left: 75vh;
+  top: 30vh;
+}
+.moon__alien#alien5 .moon__alien--crater {
+  height: 18vh;
+}
+.moon__alien#alien5 .moon__alien--et {
+  top: -44%;
+  left: -20%;
+  height: 21vh;
+}
+.moon__alien#alien6 {
+  left: 107vh;
+  top: 43vh;
+}
+.moon__alien#alien6 .moon__alien--crater {
+  height: 26vh;
+}
+.moon__alien#alien6 .moon__alien--et {
+  top: -27%;
+  left: 35%;
+  height: 21vh;
+}
+
+/*# sourceMappingURL=output.css.map */
